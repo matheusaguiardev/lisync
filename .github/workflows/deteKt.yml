@@ -26,4 +26,4 @@ jobs:
         run: bash ./gradlew app:clean app:build
 
       - name: DeteKt
-        run: bash ./gradlew app:detektVerification
+        run: bash ./gradlew app:detekt
