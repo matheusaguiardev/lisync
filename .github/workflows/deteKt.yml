@@ -22,5 +22,11 @@ jobs:
         with:
           java-version: 1.8
 
+      - name: clean
+          run: bash ./gradlew app:clean
+
+      - name: Build
+          run: bash ./gradlew app:build
+
       - name: DeteKt
-        run: bash ./gradlew app:clean app:build app:detektVerification
+        run: bash ./gradlew app:detektVerification
