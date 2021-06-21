@@ -7,7 +7,8 @@ buildscript {
                 'gradlePlugin': '3.6.1',
                 'appCompat'   : '1.0.2',
                 'kotlin_version' : '1.5.10',
-                'ktlint'      : '0.36.0'
+                'ktlint'      : '0.36.0',
+                'deteket_gradle': '1.0.1'
         ]
         libraries = [
                 'detekt'   : "io.gitlab.arturbosch.detekt:detekt-cli:${versions.detekt}",
@@ -17,10 +18,10 @@ buildscript {
         ]
         classpath = [
                 'kotlin'      : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
-                'gradlePlugin': "com.android.tools.build:gradle:${versions.gradlePlugin}"
+                'gradlePlugin': "com.android.tools.build:gradle:${versions.gradlePlugin}",
+                'detektGradle': "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${versions.deteket_gradle}"
         ]
     }
-
 
     repositories {
         google()
@@ -30,6 +31,7 @@ buildscript {
     dependencies {
         classpath classpath.gradlePlugin
         classpath classpath.kotlin
+        classpath classpath.detektGradle
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
