@@ -8,5 +8,4 @@ class LisyncApp: Application() {
         super.onCreate()
     }
 
-
 }

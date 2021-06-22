@@ -1,26 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext {
-        versions = [
-                'kotlin'      : '1.4.32',
-                'detekt'      : '1.17.0',
-                'gradlePlugin': '3.6.1',
-                'appCompat'   : '1.0.2',
-                'kotlin_version' : '1.4.32',
-                'ktlint'      : '0.36.0',
-                'detekt_gradle': '1.0.1'
-        ]
-        libraries = [
-                'detekt'   : "io.gitlab.arturbosch.detekt:detekt-cli:${versions.detekt}",
-                'kotlin'   : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
-                'appCompat': "androidx.appcompat:appcompat:${versions.appCompat}",
-                'ktlint'   : "com.pinterest:ktlint:${versions.ktlint}"
-        ]
-        classpath = [
-                'kotlin'      : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
-                'gradlePlugin': "com.android.tools.build:gradle:${versions.gradlePlugin}",
-        ]
-    }
+
+    apply from: "${rootDir}/libs/build.gradle"
 
     repositories {
         google()
@@ -28,13 +9,14 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:4.2.1"
+        classpath classpath.gradlePlugin
         classpath classpath.kotlin
+        classpath classpath.googleServices
     }
 }
 
 plugins {
-    id("io.gitlab.arturbosch.detekt").version("1.9.1")
+    id("io.gitlab.arturbosch.detekt").version("1.17.0")
 }
 
 allprojects {
